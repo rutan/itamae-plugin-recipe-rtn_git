@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ru_shalm@hazimu.com']
   spec.summary       = %q{Itamae recipe plugin for git.}
   spec.description   = %q{Itamae recipe plugin for git.}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/rutan/itamae-plugin-recipe-rtn_git'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
