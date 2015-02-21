@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ### Add your recipe or role
 ```ruby
-include_recipe 'rtn_php_nabe::system'
+include_recipe 'rtn_git:system'
 ```
 
 ### node.json
