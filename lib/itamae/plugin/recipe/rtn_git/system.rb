@@ -29,7 +29,7 @@ define :git_install, install_path: nil, archive_url: nil do
   end
   packages.each &method(:package)
 
-  execute "cd #{tmp_dir} && wget #{params[:archive_url]}" do
+  execute "cd #{tmp_dir} && wget #{params[:archive_url]} -O #{tmp_dir}/#{filename}" do
     not_if "test -O #{tmp_dir}/#{filename}"
   end
 
@@ -49,3 +49,4 @@ git_install node[:rtn_git][:version] do
   archive_url node[:rtn_git][:archive_url]
   not_if ". /etc/profile && git --version | grep '#{node[:rtn_git][:version]}'"
 end
+
