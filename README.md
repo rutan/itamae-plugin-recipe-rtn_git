@@ -22,14 +22,14 @@ Or install it yourself as:
 
 ### Add your recipe or role
 ```ruby
-include_recipe 'rtn_git:system'
+include_recipe 'rtn_git::system'
 ```
 
 ### node.json
 ```json
 {
   "rtn_git": {
-    "versions": "2.3.0"
+    "version": "2.3.0"
   }
 }
 ```
