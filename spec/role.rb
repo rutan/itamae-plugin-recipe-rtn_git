@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-case os[:family]
+case node[:platform]
 when %r(debian|ubuntu)
   execute 'apt-get update -y'
 end
