@@ -14,7 +14,7 @@ define :git_install, install_path: nil, archive_url: nil do
   dirname = "git-#{params[:name]}"
 
   packages = %w[wget gcc gettext]
-  case os[:family]
+  case node[:platform]
   when %r(debian|ubuntu)
     packages << 'libssl-dev'
     packages << 'libcurl4-openssl-dev'
