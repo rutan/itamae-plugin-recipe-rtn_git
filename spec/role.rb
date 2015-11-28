@@ -5,5 +5,5 @@ when %r(debian|ubuntu)
   execute 'apt-get update -y'
 end
 
-include_recipe 'rtn_git::system'
+include_recipe 'rtn_git'
 
