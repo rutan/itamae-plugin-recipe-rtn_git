@@ -1,5 +1,7 @@
 # Itamae::Plugin::Recipe::RtnGit
 
+[![wercker status](https://app.wercker.com/status/bf1e43ebb1d530cebc4f5f04806612de/s "wercker status")](https://app.wercker.com/project/bykey/bf1e43ebb1d530cebc4f5f04806612de)
+
 [Itamae](https://github.com/itamae-kitchen/itamae) recipe plugin for git (from source).
 
 ## Installation

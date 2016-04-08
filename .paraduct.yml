@@ -1,0 +1,7 @@
+script: ./scripts/ci.sh ${HOST}
+after_script: sleep 5 && vagrant destroy -f $HOST
+variables:
+  HOST:
+    - centos7
+    - ubuntu1404
+max_threads: 4

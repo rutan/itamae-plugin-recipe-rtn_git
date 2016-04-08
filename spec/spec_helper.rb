@@ -17,8 +17,7 @@ end
 
 host = ENV['TARGET_HOST']
 
-system("vagrant up #{host}")
-system("bundle exec itamae ssh -h #{host} --vagrant '#{File.expand_path("../role.rb", __FILE__)}' -j '#{File.expand_path("../node.json", __FILE__)}' --log-level=#{ENV['LOG_LEVEL'] || 'INFO'}")
+`vagrant up #{host}`
 
 config = Tempfile.new('', Dir.tmpdir)
 config.write(`vagrant ssh-config #{host}`)

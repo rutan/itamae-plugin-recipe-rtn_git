@@ -16,6 +16,7 @@ define :git_install, install_path: nil, archive_url: nil do
   packages = %w[wget gcc gettext]
   case node[:platform]
   when %r(debian|ubuntu)
+    packages << 'make'
     packages << 'libssl-dev'
     packages << 'libcurl4-openssl-dev'
     packages << 'libexpat1-dev'

@@ -1,0 +1,39 @@
+box: sue445/rvm-vagrant-digitalocean@1.0.0
+build:
+  steps:
+    - rvm-use:
+        version: 2.3.0
+    - script:
+        name: install bundler
+        code: gem install bundler -v 1.10.6 --no-document
+    - bundle-install:
+        jobs: 4
+    - script:
+        name: create .ssh directory
+        code: mkdir -m 700 -p $HOME/.ssh
+    - create-file:
+        name: put private key
+        filename: $HOME/.ssh/id_rsa.vagrant
+        overwrite: true
+        hide-from-log: true
+        content: $DIGITALOCEAN_KEY_PRIVATE
+    - create-file:
+        name: put public key
+        filename: $HOME/.ssh/id_rsa.vagrant.pub
+        overwrite: true
+        hide-from-log: true
+        content: $DIGITALOCEAN_KEY_PUBLIC
+    - script:
+        name: chmod 600 id_rsa
+        code: chmod 600 $HOME/.ssh/id_rsa.vagrant
+    - script:
+        name: build
+        code: bundle exec paraduct test
+  after-steps:
+    - script:
+        name: destroy vm
+        code: vagrant destroy -f
+    - wantedly/pretty-slack-notify:
+        webhook_url: $SLACK_WEBHOOK_URL
+        username: wercker
+
